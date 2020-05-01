@@ -1,0 +1,36 @@
+stages:
+ - staging
+ - production
+
+hash-staging:
+  stage: staging
+  script:
+    - echo $CI_PROJECT_DIR
+    - rm -rf ~/58hash
+    - /bin/cp -r $CI_PROJECT_DIR ~
+    - find ~/58hash -name 'package-lock.json' -exec rm -rf {} \;
+    - /bin/cp ~/58hash/api.config.js.prod ~/58hash/myConfig/api.config.js
+    - cd ~/58hash
+    - echo `pwd`
+    - npm i
+    - npm run build
+    - tar czvf hash-$CI_COMMIT_TAG.tar.gz dist/
+    - scp hash-$CI_COMMIT_TAG.tar.gz 58coin@23.102.227.157:/home/58coin
+    - ssh 58coin@23.102.227.157 "mkdir -p /www/hash/staging/hash-$CI_COMMIT_TAG && tar zxvf /home/58coin/hash-$CI_COMMIT_TAG.tar.gz -C /www/hash/staging/hash-$CI_COMMIT_TAG && ln -sn --force /www/hash/staging/hash-$CI_COMMIT_TAG/dist /www/hash/staging/dist"
+    - scp hash-$CI_COMMIT_TAG.tar.gz 58coin@23.102.237.125:/home/58coin
+    - ssh 58coin@23.102.237.125 "mkdir -p /www/hash/staging/hash-$CI_COMMIT_TAG && tar zxvf /home/58coin/hash-$CI_COMMIT_TAG.tar.gz -C /www/hash/staging/hash-$CI_COMMIT_TAG && ln -sn --force /www/hash/staging/hash-$CI_COMMIT_TAG/dist /www/hash/staging/dist"
+  only:
+    - tags
+  tags:
+    - ip-65-186
+
+hash-production:
+  stage: production
+  script:
+    - ssh 58coin@23.102.227.157 "ln -sn --force /www/hash/staging/hash-$CI_COMMIT_TAG/dist /www/hash/prod/dist"
+    - ssh 58coin@23.102.237.125 "ln -sn --force /www/hash/staging/hash-$CI_COMMIT_TAG/dist /www/hash/prod/dist"
+  only:
+    - tags
+  when: on_success
+  tags:
+    - ip-65-186

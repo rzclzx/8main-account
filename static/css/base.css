@@ -1,0 +1,166 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: PingFangSC-Regular, "Microsoft YaHei", "Helvetica Neue", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background: #f5f6fa;
+}
+
+img {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input{
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 24px #fff inset;
+}
+
+button {
+  outline: none;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+}
+
+ul,
+ol,
+li,
+em {
+  list-style: none;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1160px;
+}
+
+#img-hidden {
+  width: 0;
+  height: 0;
+}
+
+/**重构包含滑块的地方*/
+.st-form .count-down-wrapper {
+  width: 350px !important;
+  /*min-height: auto !important;*/
+  /*margin-bottom: 30px;*/
+}
+
+/*阿里滑块验证*/
+.nc-container .nc_scale .btn_slide {
+  height: 40px !important;
+  line-height: 40px !important;
+  border-radius: 3px;
+  background-color: #fff;
+  border: 1px solid #EAEEF6;
+  top: -1px;
+  left: -1px;
+  color: #94A1B9;
+}
+
+.nc-container .nc_scale .btn_ok {
+  top: -1px;
+  color: #46C089;
+  height: 40px !important;
+  line-height: 40px !important;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.nc_scale {
+  height: 40px !important;
+  line-height: 40px !important;
+  border-radius: 3px;
+  background: #FAFAFC;
+  border: 1px solid #ECF0F7;
+}
+
+.nc-container .nc_scale .scale_text {
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.nc-container .nc_scale .nc-align-center.scale_text2 {
+  text-indent: -10px;
+}
+
+/*滑块背景色*/
+.nc-container .nc_scale .nc_ok, .nc-container .nc_scale .nc_bg {
+  background: #32B28F;
+  border: 1px solid #32B28F;
+  top: -1px;
+  height: 40px !important;
+  line-height: 40px !important;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+/*显示文字*/
+.nc-container .nc_scale span.nc-lang-cnt {
+  font-size: 14px;
+}
+
+.nc-container .scale_text.scale_text.slidetounlock span[data-nc-lang="_startTEXT"] {
+  height: 40px !important;
+  line-height: 40px !important;
+}
+
+.nc-container .errloading {
+  border-radius: 3px;
+  width: 100%;
+  padding: 8px 5px;
+  line-height: 20px;
+  font-size: 13px;
+  color: #F0696D;
+  border-color: #F0696D;
+}
+
+.nc-container .errloading .icon_warn {
+  margin-top: -2px;
+}
+
+.nc-container .errloading span {
+  display: inline-block;
+  padding-top: 2px;
+}
+
+.nc-container .errloading a {
+  color: #597AB9;
+  margin: 0 2px;
+}
