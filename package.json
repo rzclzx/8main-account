@@ -57,7 +57,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.3.2",
-    "qs": "^6.5.2",
+    "qs": "^6.5.3",
     "rimraf": "^2.6.0",
     "semver": "^5.5.1",
     "shelljs": "^0.7.6",
